@@ -1,0 +1,26 @@
+AllCops:
+  Include:
+    - '**/Berksfile'
+    - Gemfile
+    - Rakefile
+    - Thorfile
+    - Guardfile
+  Exclude:
+    - vendor/**/*
+
+Style/Documentation:
+  Enabled: false
+
+Style/SpaceBeforeFirstArg:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+#inherit_from: .rubocop_todo.yml

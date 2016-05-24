@@ -1,0 +1,16 @@
+description "<%= @name %>"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+respawn
+respawn limit 10 5
+umask 022
+chdir <%= @directory %>
+<%- @environment.each do |key, val| -%>
+env <%= key %>="<%= val %>"
+<%- end -%>
+setuid <%= @service_user %>
+kill signal <%= @stop_signal %>
+reload signal HUP
+exec <%= @command %>
