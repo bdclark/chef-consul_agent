@@ -92,7 +92,19 @@ module ConsulAgent
         'consul_0.6.4_solaris_amd64.zip' => 'c26a64310f83c3ba388c78d5b89d640d961ae9eabe221c244bfffcfa753966bd',
         'consul_0.6.4_web_ui.zip' => '5f8841b51e0e3e2eb1f1dc66a47310ae42b0448e77df14c83bb49e0e0d5fa4b7',
         'consul_0.6.4_windows_386.zip' => '6555f0fff6c3f9ea310c94a73365d9892afc255efb47c85041ad1c0ede854b87',
-        'consul_0.6.4_windows_amd64.zip' => '1ca3cc2943b27ec8968665efce1122d4ea355ccbde5b4807753af71f11190a9b'
+        'consul_0.6.4_windows_amd64.zip' => '1ca3cc2943b27ec8968665efce1122d4ea355ccbde5b4807753af71f11190a9b',
+        'consul_0.7.0_darwin_386.zip' => '16ab91969c9b268ccae532070221b6c4fecaad298e4662a46cdfe9847c80dd3f',
+        'consul_0.7.0_darwin_amd64.zip' => '74111674527c5be0db7a98600df8290395abdd94e2cd86bda7418d748413396d',
+        'consul_0.7.0_freebsd_386.zip' => 'fe7f80ce8fcdd517f4228b66a4836119ad6e22c2a5285cf4de02c0ccf8c2eefd',
+        'consul_0.7.0_freebsd_amd64.zip' => '54c864ce0deeeb01d10752a787c3bc3154d6fb020859fcc8b089ac3548756702',
+        'consul_0.7.0_freebsd_arm.zip' => '1b16624f3581a7bef5328d17ff4ab9188ffdd07543cab3fb72b3cd7a7d469724',
+        'consul_0.7.0_linux_386.zip' => 'babf618b1f10455b4ab65b91bdf5d5a7be5bfbb874ce41e8051caca884c43378',
+        'consul_0.7.0_linux_amd64.zip' => 'b350591af10d7d23514ebaa0565638539900cdb3aaa048f077217c4c46653dd8',
+        'consul_0.7.0_linux_arm.zip' => '7c9ee149d66d14cc8aa81b8d86e7df5a27876216578ab841ab3921e7f4a0ce4b',
+        'consul_0.7.0_solaris_amd64.zip' => '0f1db173a95861bc84940b4dcdb2debfbfbc18f2b50e651d0e23dfda331018ea',
+        'consul_0.7.0_web_ui.zip' => '42212089c228a73a0881a5835079c8df58a4f31b5060a3b4ffd4c2497abe3aa8',
+        'consul_0.7.0_windows_386.zip' => 'd0ddfe7d1de9879f02b0d110e45bb74cd5028a2910bcac8b2629d0659367cd96',
+        'consul_0.7.0_windows_amd64.zip' => 'ac5973a58dd9c6f52c784a7106a29adcf7c94015036538155b6c0ee7efc3a330'
       }
     end
   end
