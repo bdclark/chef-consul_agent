@@ -19,10 +19,10 @@ prog="<%= File.basename(@daemon) %>"
 user="<%= @service_user %>"
 exec="<%= @daemon %>"
 pidfile="/var/run/$instance.pid"
-logfile="/var/log/$instance.log"
+logfile="<%= @log_dir %>/$instance.log"
 lockfile="/var/lock/subsys/$instance"
 
-<%- if platform_family?('debian') -%>
+<%- if node['platform_family'] == 'debian' -%>
 [ -e /etc/default/$instance ] && . /etc/default/$instance
 <%- else -%>
 [ -e /etc/sysconfig/$instance ] && . /etc/sysconfig/$instance
@@ -33,7 +33,7 @@ export <%= key %>="<%= val %>"
 <%- end -%>
 export PATH="${PATH:+$PATH:}/usr/sbin:/sbin"
 
-<%- if platform_family?('debian') -%>
+<%- if node['platform_family'] == 'debian' -%>
 . /lib/lsb/init-functions
 
 _start() {
@@ -122,7 +122,7 @@ case "$1" in
         _status_q || exit 0
         _stop
         ;;
-    restart|force-reload)
+    restart)
         _restart
         ;;
     reload)
@@ -132,12 +132,8 @@ case "$1" in
     status)
         _status
         ;;
-    condrestart|try-restart)
-        _status_q || exit 0
-        _restart
-        ;;
     *)
-        echo $"Usage: $0 {start|stop|status|restart|condrestart|try-restart|reload|force-reload}"
+        echo $"Usage: $0 {start|stop|status|restart|reload}"
         exit 2
 esac
 

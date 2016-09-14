@@ -24,7 +24,7 @@ module ConsulAgentCookbook
     provides :consul_agent_service, platform: %w(redhat centos scientific oracle) do |node| # ~FC005
       node['platform_version'].to_f < 7.0
     end
-    provides :tomcat_service, platform: 'debian' do |node|
+    provides :consul_agent_service, platform: 'debian' do |node|
       node['platform_version'].to_i < 8
     end
 
@@ -35,6 +35,15 @@ module ConsulAgentCookbook
 
       def create_init
         create_directories
+
+        # create log_dir for sysvinit only
+        directory new_resource.log_dir do
+          owner new_resource.user
+          group new_resource.group
+          mode '0755'
+          recursive true
+          action :create
+        end
 
         template "/etc/init.d/#{consul_service_name}" do
           source 'sysvinit.service.erb'

@@ -27,6 +27,7 @@ module ConsulAgentCookbook
     property :data_dir, String, required: true
     property :config_file, String
     property :config_dir, String
+    property :log_dir, String, default: lazy { node['consul_agent']['log_dir'] }
     property :user, String, default: lazy { node['consul_agent']['service_user'] }
     property :group, String, default: lazy { node['consul_agent']['service_group'] }
     property :stop_signal, String, default: lazy { node['consul_agent']['stop_signal'] }
@@ -96,14 +97,21 @@ module ConsulAgentCookbook
       end
 
       def create_directories
-        [data_dir, config_dir].each do |dir|
-          directory dir do
-            owner new_resource.user
-            group new_resource.group
-            mode '0755'
-            recursive true
-            only_if { dir }
-          end
+        directory "#{new_resource.name}-data_dir" do
+          path new_resource.data_dir
+          owner new_resource.user
+          group new_resource.group
+          mode '0755'
+          recursive true
+        end
+
+        directory "#{new_resource.name}-config_dir" do
+          path new_resource.config_dir
+          owner 'root'
+          group 'root'
+          mode '0755'
+          recursive true
+          only_if { new_resource.config_dir }
         end
       end
 
