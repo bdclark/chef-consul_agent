@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe command('sleep 30') do
+describe command('sleep 15') do
   its(:exit_status) { should eq 0 }
 end
 
@@ -31,8 +31,13 @@ describe command('curl -s http://localhost:8500/ui/') do
 end
 
 describe command(%(curl -s 'http://localhost:8500/v1/catalog/service/foo?pretty')) do
-  its(:exit_status) { should eq 0 }
   its(:stdout) { should contain '"ServiceID": "foo"' }
   its(:stdout) { should contain '"ServiceAddress": "10.20.30.40"' }
   its(:stdout) { should contain '"ServicePort": 1234' }
+end
+
+dns_server = '127.0.0.1' if os[:family] == 'redhat' && os[:release].to_i == 6
+
+describe command("host foo.service.consul #{dns_server}") do
+  its(:stdout) { should match(/^foo.service.consul has address 10.20.30.40/) }
 end

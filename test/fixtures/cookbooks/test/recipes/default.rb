@@ -10,8 +10,12 @@ node.default['consul_agent']['config']['ui'] = true
 
 include_recipe 'apt'
 include_recipe 'consul_agent'
+include_recipe 'consul_agent::dnsmasq'
+
 
 package 'curl'
+package 'bind9-host' if platform_family?('debian')
+package 'bind-utils' if platform_family?('rhel')
 
 consul_agent_acl 'secret_agent' do
   rules <<-EOS

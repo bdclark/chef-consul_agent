@@ -111,7 +111,7 @@ module ConsulAgentCookbook
           group 'root'
           mode '0755'
           recursive true
-          only_if { new_resource.config_dir }
+          not_if { new_resource.config_dir.nil? }
         end
       end
 

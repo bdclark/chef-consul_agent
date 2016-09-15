@@ -27,3 +27,6 @@ default['consul_agent']['config']['ports'] = {
   serf_wan: 8302,
   server: 8300
 }
+
+default['consul_agent']['dnsmasq']['network_manager_enabled'] = false
+default['consul_agent']['dnsmasq']['upstream_servers'] = []
