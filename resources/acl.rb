@@ -50,7 +50,6 @@ action_class.class_eval do
   end
 
   def require_diplomat
-    # gem 'diplomat', node['consul_agent']['diplomat_version']
     require 'diplomat'
   rescue LoadError
     Chef::Log.debug('Did not find diplomat. Installing now')
