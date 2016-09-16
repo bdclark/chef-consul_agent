@@ -36,6 +36,12 @@ describe command(%(curl -s 'http://localhost:8500/v1/catalog/service/foo?pretty'
   its(:stdout) { should contain '"ServicePort": 1234' }
 end
 
+describe command(%(curl -s 'http://localhost:8500/v1/catalog/service/bar?pretty')) do
+  its(:stdout) { should contain '"ServiceID": "bar"' }
+  its(:stdout) { should contain '"ServiceAddress": "5.6.7.8"' }
+  its(:stdout) { should contain '"ServicePort": 5678' }
+end
+
 dns_server = '127.0.0.1' if os[:family] == 'redhat' && os[:release].to_i == 6
 
 describe command("host foo.service.consul #{dns_server}") do

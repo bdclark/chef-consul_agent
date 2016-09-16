@@ -12,7 +12,6 @@ include_recipe 'apt'
 include_recipe 'consul_agent'
 include_recipe 'consul_agent::dnsmasq'
 
-
 package 'curl'
 package 'bind9-host' if platform_family?('debian')
 package 'bind-utils' if platform_family?('rhel')
@@ -33,5 +32,12 @@ consul_agent_definition 'foo' do
     port: 1234,
     token: 'supersecret'
   )
+  notifies :reload, 'consul_agent_service[consul]', :delayed
+end
+
+consul_agent_service_definition 'bar' do
+  address '5.6.7.8'
+  port 5678
+  token 'supersecret'
   notifies :reload, 'consul_agent_service[consul]', :delayed
 end
