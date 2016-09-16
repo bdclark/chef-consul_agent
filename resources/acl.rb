@@ -66,7 +66,7 @@ action_class.class_eval do
       require 'diplomat'
     rescue LoadError
       raise RunTimeError, 'The diplomat gem is required; ' \
-                          'include recipe[consul::client_gem] to install.'
+                          'include recipe[consul_agent::client_gem] to install.'
     end
     Diplomat.configure do |config|
       config.url = new_resource.url

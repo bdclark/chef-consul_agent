@@ -1,5 +1,6 @@
 
 default['consul_agent']['version'] = '0.6.4'
+default['consul_agent']['diplomat_version'] = nil
 
 default['consul_agent']['create_service_user'] = true
 default['consul_agent']['service_user'] = 'consul'
