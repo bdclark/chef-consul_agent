@@ -52,3 +52,9 @@ action :delete do
     action :delete
   end
 end
+
+action_class do
+  def whyrun_supported?
+    true
+  end
+end

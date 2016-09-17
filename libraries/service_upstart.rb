@@ -33,6 +33,7 @@ module ConsulAgentCookbook
 
         template "/etc/init/#{consul_service_name}.conf" do
           source 'upstart.service.erb'
+          cookbook 'consul_agent'
           owner 'root'
           group 'root'
           mode '0755'

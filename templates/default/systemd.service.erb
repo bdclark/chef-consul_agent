@@ -10,6 +10,7 @@ ExecReload=/bin/kill -HUP $MAINPID
 KillSignal=<%= @stop_signal %>
 User=<%= @service_user %>
 WorkingDirectory=<%= @directory %>
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target

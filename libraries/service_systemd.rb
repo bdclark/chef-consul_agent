@@ -30,7 +30,7 @@ module ConsulAgentCookbook
       node['platform_version'].to_f >= 13.0
     end
     provides :consul_agent_service, platform: 'ubuntu' do |node|
-      node['platform_version'].to_f >= 15.10
+      node['platform_version'].to_f >= 15.04
     end
 
     action_class.class_eval do
@@ -44,6 +44,7 @@ module ConsulAgentCookbook
 
         template service_file do
           source 'systemd.service.erb'
+          cookbook 'consul_agent'
           owner 'root'
           group 'root'
           mode '0755'

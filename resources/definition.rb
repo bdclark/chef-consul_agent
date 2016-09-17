@@ -43,7 +43,11 @@ action :delete do
   end
 end
 
-action_class.class_eval do
+action_class do
+  def whyrun_supported?
+    true
+  end
+
   def json_content
     params = new_resource.parameters
     if %w(check service).include?(new_resource.type) && params[:name].nil? && params['name'].nil?

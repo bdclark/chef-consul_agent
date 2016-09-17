@@ -47,6 +47,7 @@ module ConsulAgentCookbook
 
         template "/etc/init.d/#{consul_service_name}" do
           source 'sysvinit.service.erb'
+          cookbook 'consul_agent'
           owner 'root'
           group 'root'
           mode '0755'

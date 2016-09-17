@@ -13,7 +13,7 @@ default['consul_agent']['bin_dir'] = '/usr/local/bin'
 default['consul_agent']['config_path'] = '/etc/consul/config.json'
 default['consul_agent']['config_dir'] = '/etc/consul/conf.d'
 default['consul_agent']['log_dir'] = '/var/log/consul' # sysvinit only
-default['consul_agent']['stop_signal'] = 'INT'
+default['consul_agent']['stop_signal'] = 'TERM'
 
 default['consul_agent']['serve_web_ui'] = false
 default['consul_agent']['web_ui_dir'] = '/opt/consul-webui'

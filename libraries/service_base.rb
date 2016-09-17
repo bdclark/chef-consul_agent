@@ -90,6 +90,10 @@ module ConsulAgentCookbook
     end
 
     declare_action_class.class_eval do
+      def whyrun_supported?
+        true
+      end
+
       def ensure_config
         if new_resource.config_file.nil? && new_resource.config_dir.nil?
           raise 'config_file and/or config_dir is required'
@@ -121,8 +125,8 @@ module ConsulAgentCookbook
 
       def daemon_options
         opts = 'agent'
-        opts << " --config-file #{config_file}" if config_file
-        opts << " --config-dir #{config_dir}" if config_dir
+        opts << " -config-file=#{config_file}" if config_file
+        opts << " -config-dir=#{config_dir}" if config_dir
       end
 
       def default_environment

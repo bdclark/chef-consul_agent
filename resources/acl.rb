@@ -44,7 +44,11 @@ action :delete do
   end
 end
 
-action_class.class_eval do
+action_class do
+  def whyrun_supported?
+    true
+  end
+
   def acl
     { 'ID' => id, 'Type' => type, 'Name' => acl_name, 'Rules' => rules }
   end
