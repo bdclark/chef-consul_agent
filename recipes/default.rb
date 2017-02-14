@@ -17,7 +17,12 @@
 
 include_recipe 'consul_agent::service_user' if node['consul_agent']['create_service_user']
 
-consul_agent_install node['consul_agent']['version']
+consul_agent_install node['consul_agent']['version'] do
+  checksum node['consul_agent']['checksum'] if node['consul_agent']['checksum']
+  if node['consul_agent']['restart_on_update']
+    notifies :restart, 'consul_agent_service[consul]', :delayed
+  end
+end
 
 consul_agent_config node['consul_agent']['config_path'] do
   config node['consul_agent']['config']
@@ -28,5 +33,6 @@ consul_agent_service 'consul' do
   config_file node['consul_agent']['config_path']
   config_dir node['consul_agent']['config_dir']
   data_dir node['consul_agent']['config']['data_dir']
+  restart_on_update node['consul_agent']['restart_on_update']
   action [:enable, :start]
 end

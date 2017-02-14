@@ -1,10 +1,12 @@
 
-default['consul_agent']['version'] = '0.6.4'
+default['consul_agent']['version'] = '0.7.4'
+default['consul_agent']['checksum'] = nil
 default['consul_agent']['diplomat_version'] = nil
 
 default['consul_agent']['create_service_user'] = true
 default['consul_agent']['service_user'] = 'consul'
 default['consul_agent']['service_group'] = 'consul'
+default['consul_agent']['restart_on_update'] = true
 
 default['consul_agent']['service_uid'] = nil
 default['consul_agent']['service_gid'] = nil
