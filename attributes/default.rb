@@ -1,5 +1,5 @@
 
-default['consul_agent']['version'] = '0.7.4'
+default['consul_agent']['version'] = '0.9.0'
 default['consul_agent']['checksum'] = nil
 default['consul_agent']['diplomat_version'] = nil
 
