@@ -5,7 +5,7 @@ require 'open-uri'
 versions = []
 checksum_list = []
 
-open("https://releases.hashicorp.com/consul/index.html") do |u|
+open('https://releases.hashicorp.com/consul/index.html') do |u|
   content = u.read
   content.each_line do |line|
     if match = line.match(/^\s*<a.*?>consul_(.*?)<\/a>$/)

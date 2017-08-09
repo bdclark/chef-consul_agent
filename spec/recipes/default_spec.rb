@@ -14,12 +14,14 @@ describe 'consul_agent::default' do
   context 'with an unspecified platform' do
     it 'create service group' do
       expect(chef_run).to create_group('consul').with(
-        system: true)
+        system: true
+      )
     end
 
     it 'create service user' do
       expect(chef_run).to create_user('consul').with(
-        shell: '/bin/false', group: 'consul', system: true)
+        shell: '/bin/false', group: 'consul', system: true
+      )
     end
 
     it 'create consul_agent_install' do

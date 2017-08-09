@@ -15,14 +15,16 @@ describe 'consul_agent_install' do
   context 'with ubuntu' do
     it 'create extract directory' do
       expect(chef_run).to create_directory('/usr/local/bin/consul-0.6.4').with(
-        owner: 'root', group: 'root', mode: '0755')
+        owner: 'root', group: 'root', mode: '0755'
+      )
     end
 
     it 'download consul' do
       expect(chef_run).to create_remote_file('/tmp/chef/consul_0.6.4_linux_amd64.zip').with(
         source: 'https://releases.hashicorp.com/consul/0.6.4/consul_0.6.4_linux_amd64.zip',
         checksum: 'abdf0e1856292468e2c9971420d73b805e93888e006c76324ae39416edcf0627',
-        owner: 'root', group: 'root')
+        owner: 'root', group: 'root'
+      )
     end
 
     it 'install unzip package' do
@@ -31,12 +33,14 @@ describe 'consul_agent_install' do
 
     it 'unzip consul' do
       expect(chef_run).to run_execute('unzip_consul_0.6.4').with(
-        command: 'unzip /tmp/chef/consul_0.6.4_linux_amd64.zip -d /usr/local/bin/consul-0.6.4')
+        command: 'unzip /tmp/chef/consul_0.6.4_linux_amd64.zip -d /usr/local/bin/consul-0.6.4'
+      )
     end
 
     it 'link consul' do
       expect(chef_run).to create_link('/usr/local/bin/consul').with(
-        to: '/usr/local/bin/consul-0.6.4/consul')
+        to: '/usr/local/bin/consul-0.6.4/consul'
+      )
     end
   end
 end

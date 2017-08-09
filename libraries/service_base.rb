@@ -17,10 +17,12 @@
 
 module ConsulAgentCookbook
   class ConsulAgentService < ChefCompat::Resource
-    Boolean = property_type(
-      is: [true, false],
-      default: false
-    ) unless defined?(Boolean)
+    unless defined?(Boolean)
+      Boolean = property_type(
+        is: [true, false],
+        default: false
+      )
+    end
 
     property :service_name, String, name_property: true
     property :program, String, default: lazy { ::File.join(node['consul_agent']['bin_dir'], 'consul') }

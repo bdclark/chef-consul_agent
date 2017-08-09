@@ -16,14 +16,16 @@ describe 'consul_agent_web_ui' do
   context 'with ubuntu' do
     it 'create extract directory' do
       expect(chef_run).to create_directory('/opt/consul-webui/0.6.4').with(
-        owner: 'root', group: 'root', mode: '0755')
+        owner: 'root', group: 'root', mode: '0755'
+      )
     end
 
     it 'download webui' do
       expect(chef_run).to create_remote_file('/tmp/chef/consul_0.6.4_web_ui.zip').with(
         source: 'https://releases.hashicorp.com/consul/0.6.4/consul_0.6.4_web_ui.zip',
         checksum: '5f8841b51e0e3e2eb1f1dc66a47310ae42b0448e77df14c83bb49e0e0d5fa4b7',
-        owner: 'root', group: 'root')
+        owner: 'root', group: 'root'
+      )
     end
 
     it 'install unzip package' do
@@ -32,12 +34,14 @@ describe 'consul_agent_web_ui' do
 
     it 'unzip webui' do
       expect(chef_run).to run_execute('unzip_consul_webui_0.6.4').with(
-        command: 'unzip /tmp/chef/consul_0.6.4_web_ui.zip -d /opt/consul-webui/0.6.4')
+        command: 'unzip /tmp/chef/consul_0.6.4_web_ui.zip -d /opt/consul-webui/0.6.4'
+      )
     end
 
     it 'link webui' do
       expect(chef_run).to create_link('/opt/consul-webui/current').with(
-        to: '/opt/consul-webui/0.6.4')
+        to: '/opt/consul-webui/0.6.4'
+      )
     end
   end
 end

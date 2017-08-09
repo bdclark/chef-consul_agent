@@ -20,12 +20,11 @@ package 'dnsmasq'
 dns_domain = node['consul_agent']['config']['domain'] || 'consul'
 
 dns_ip =
-  case
-  when node['consul_agent']['config'].key?('addresses') &&
-       node['consul_agent']['config']['addresses']['dns']
+  if node['consul_agent']['config'].key?('addresses') &&
+     node['consul_agent']['config']['addresses']['dns']
     node['consul_agent']['config']['addresses']['dns']
-  when node['consul_agent']['config']['client_addr'] &&
-       node['consul_agent']['config']['client_addr'] != '0.0.0.0'
+  elsif node['consul_agent']['config']['client_addr'] &&
+        node['consul_agent']['config']['client_addr'] != '0.0.0.0'
     node['consul_agent']['config']['client_addr']
   else
     '127.0.0.1'

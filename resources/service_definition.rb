@@ -22,7 +22,7 @@ property :group, String, default: lazy { node['consul_agent']['service_group'] }
 property :id, String
 property :tags, Array
 property :address, String
-property :port, Fixnum
+property :port, Integer
 property :enableTagOverride, [TrueClass, FalseClass]
 property :check, Hash
 property :checks, Array
