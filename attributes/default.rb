@@ -1,5 +1,5 @@
 
-default['consul_agent']['version'] = '0.9.0'
+default['consul_agent']['version'] = '0.9.1'
 default['consul_agent']['checksum'] = nil
 default['consul_agent']['diplomat_version'] = nil
 
@@ -25,7 +25,6 @@ default['consul_agent']['config']['client_addr'] = '0.0.0.0'
 default['consul_agent']['config']['ports'] = {
   dns: 8600,
   http: 8500,
-  rpc: 8400,
   serf_lan: 8301,
   serf_wan: 8302,
   server: 8300

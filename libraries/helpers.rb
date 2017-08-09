@@ -19,6 +19,16 @@ module ConsulAgent
   module Helpers
     def checksums
       {
+        'consul_0.9.1_darwin_386.zip' => '4d20daad49708f17515d5d2b89c731d88253f53b8aa578fca7e7c135be6603a2',
+        'consul_0.9.1_darwin_amd64.zip' => 'd035207b84c8bd4cdc252b01053d2126b6194e7961a130b11407e6e3a66e4b0e',
+        'consul_0.9.1_freebsd_386.zip' => '8ef07af1986ebbf8d5e4fce98f23f02210f28c5ae643cd50afd24e4acbb361d9',
+        'consul_0.9.1_freebsd_amd64.zip' => 'e02e92ebfd77ae9c24e06dc1aece27b8096d1a043810ba19365811fb38e110fa',
+        'consul_0.9.1_freebsd_arm.zip' => '32c6bd2c341faf582070b2bd6e53a77544273dfaf528338cb21c4ba5898435c3',
+        'consul_0.9.1_linux_386.zip' => '5143f419b4ba67b6c4fdd023a26a6563f0a7cf47909e648e490ef552caf03f65',
+        'consul_0.9.1_linux_amd64.zip' => 'e997b87e70dc0f4996d7c5ac89f4776a8569ca99c00e5c8b8a0e0eb1042a9d30',
+        'consul_0.9.1_linux_arm.zip' => '393347d27cfc9362b17c92099296f09acfc7ac2b7671b05350d1aa960dd85086',
+        'consul_0.9.1_linux_arm64.zip' => 'a40896fd59e9830b792eb05cad3a5d7adb6bddbb974f43a3fa9b10d718f6431d',
+        'consul_0.9.1_solaris_amd64.zip' => '7d93e50bbf0abd1fc2cac141981c3b476c9cba3b303b37f08f35977241b0716a',
         'consul_0.9.0_darwin_386.zip' => 'a7b9fac9429e35b393d9f7e7b3b65dccb920a5dc3589c600ed6aa552ab30e8c8',
         'consul_0.9.0_darwin_amd64.zip' => '0bf2cee6d7c8eb3ce5bb6a868907d845a0b9fd83655146b9dd17dc530e6a7ef5',
         'consul_0.9.0_freebsd_386.zip' => '8d53ee049d8fe4934286441acc730606b3002dcc40f54e13f57d3e5e8e332c42',
